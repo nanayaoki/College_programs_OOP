@@ -11,35 +11,34 @@ class Student {
     private:
         string name;
         int age;
-        static int studentCount; // Static member to keep track of student count
+        static int studentCount; 
     public:
-        // Constructor
+       
         Student(string n, int a) : name(n), age(a) {
             studentCount++;
             cout << "Constructor called for " << name << endl;
         }
 
-        // Destructor
+       
         ~Student() {
             cout << "Destructor called for " << name << endl;
             studentCount--;
         }
 
-        // Inline function to display student details
         inline void display() const {
             cout << "Name: " << name << ", Age: " << age << endl;
         }
 
-        // Static function to get the current student count
+        
         static int getStudentCount() {
             return studentCount;
         }
 
-        // Friend function to compare ages of two students
+       
         friend void compareAges(const Student &s1, const Student &s2);
 };
-int Student::studentCount = 0; // Initialize static member
-// Friend function definition
+int Student::studentCount = 0; 
+
 void compareAges(const Student &s1, const Student &s2) {
     if (s1.age > s2.age) {
         cout << s1.name << " is older than " << s2.name << endl;
